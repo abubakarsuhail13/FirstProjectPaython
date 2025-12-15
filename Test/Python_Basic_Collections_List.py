@@ -1,4 +1,4 @@
-
+"""List [] ordered | Indexed | changeable | Dublicates"""
 my_list = ["London", "Manchester", "New York"]
 print(my_list)
 print(my_list[2])
