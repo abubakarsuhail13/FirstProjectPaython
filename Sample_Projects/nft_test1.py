@@ -1,11 +1,9 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-import HtmlTestRunner
+from selenium.webdriver.common.keys import Keys
+import HtmlTestRunner  # Make sure this matches your installed package
 
-
-#Unit testcase in the python
 class GoogleSearchNFT(unittest.TestCase):
 
     @classmethod
@@ -16,35 +14,14 @@ class GoogleSearchNFT(unittest.TestCase):
 
     def test_google_NFT(self):
         self.driver.get("https://www.google.com")
-        self.driver.find_element(By.NAME, "q").send_keys("Nexaforge Tech LTD")
-        self.driver.find_element(By.NAME, "btnK").click()
+        search_box = self.driver.find_element(By.NAME, "q")
+        search_box.send_keys("Nexaforge Tech LTD" + Keys.ENTER)
 
     @classmethod
     def tearDownClass(cls):
         input("Press ENTER to close the browser...")
         cls.driver.quit()
-        print("First Test automated successfully.")
 
 
 if __name__ == "__main__":
-    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner
-    (output='C:/Users/Dell/PycharmProjects/FirstProjectPaython/reports'))
-
-
-
-
-
-#Simple testcase in python
-# driver = webdriver.Chrome()
-# driver.implicitly_wait(10)
-# driver.maximize_window()
-# driver.get("https://www.google.com")
-#
-# driver.find_element(By.NAME, "q").send_keys("Nexaforge Tech LTD")
-# driver.implicitly_wait(10)
-# driver.find_element(By.NAME, "btnK").click()
-#
-# input("Press the enter to close the window.")
-# driver.quit()
-# print("First Test automated successfully.")
-#
+    unittest.main(testRunner=HtmlTestRunner.HTMLTestRunner(output='reports'))
